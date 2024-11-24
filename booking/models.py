@@ -9,7 +9,7 @@ class Room(models.Model):
     location = models.TextField()
 
     def __str__(self):
-        return f"{self.number}-{self.capacity}"
+        return f"Room: {self.number}\nCapacity: {self.capacity}"
     
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="bookings")
@@ -19,6 +19,5 @@ class Booking(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.user}-{self.room}"
-    
+        return f"Client:{self.user}\nRoom:{self.room}"
     
